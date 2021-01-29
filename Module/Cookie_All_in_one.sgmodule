@@ -136,9 +136,5 @@ WeChatLottery_new.js = script-path=https://raw.githubusercontent.com/nzw9314/Qua
 # > 彩云天气 (By Peng-YM)
 彩云天气定位= type=http-request, pattern=https://weather-data.apple.com, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/caiyun.js, require-body=false
 
-# > 来客有礼宠汪汪强制助力(By lxk0301)
-# 从京东APP宠汪汪->领狗粮->邀请好友助力，分享给你小号微信或者微信的文件传输助手。 自己再打开刚才的分享，助力成功后，退出小程序重新进去刚才分享的小程序即可
-宠汪汪强制为别人助力= type=http-request,pattern=(^https:\/\/draw\.jdfcloud\.com\/\/pet\/enterRoom\?reqSource=weapp&invitePin=.*+(&inviteSource=task_invite&shareSource=\w+&inviteTimeStamp=\d+&openId=\w+)?|^https:\/\/draw\.jdfcloud\.com\/\/pet\/helpFriend\?friendPin),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/lxk0301/scripts/master/jd_joy_help.js
-
 [MITM]
 hostname = %APPEND%     h5.youzan.com,    apapia-history.manmanbuy.com, weather-data.apple.com,  appv8.qukantianxia.com,      proxy.vac.qq.com, *.xmcimg.com,  note.youdao.com,ios.baertt.com, api.m.jd.com,  c.tieba.baidu.com,   *.smzdm.com, *.v2ex.com,*.bilibili.com, *.video.qq.com, *.acfun.cn, *.rrys2019.com, *.rr.tv, www.flyertea.com,    apk.tw,  ,   ios.zmzapi.com, *.y.qq.com,   mtrace.qq.com,  daojia.jd.com, api-hdcj.9w9.com, xiaoshuo.qm989.com, api.everphoto.cn, group.baicizhan.com, maicai.api.ddxq.mobi, pm.m.fenqile.com, ms.jr.jd.com, nebula.kuaishou.com, api.dushu.io, node.kg.qq.com, app.nio.com, wxprdapplet.gac-nio.com, activity-1.m.duiba.com.cn, m.client.10010.com, m-bean.kaola.com, 110.43.90.61, zt.wps.cn, passport.suning.com, luckman.suning.com, sign.suning.com, gameapi.suning.com, iphone.myzaker.com, draw.jdfcloud.com, mwegame.qq.com, api.1sapp.com, tieba.baidu.com, m.ximalaya.com,   api.inews.qq.com, manga.bilibili.com, *.youth.cn
