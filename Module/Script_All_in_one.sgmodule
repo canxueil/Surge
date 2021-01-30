@@ -69,14 +69,11 @@ nf_rating.js = requires-body=1,script-path=https://raw.githubusercontent.com/yic
 # > 微博去广告
 wb_launch.js = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js,type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
 wb_ad.js = type=http-response,requires-body=1,max-size=-1,pattern=^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/photos/pic_recommend_status|video/tiny_stream_video_list|photo/info),script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js
-
 # > Choler
 # > 抖音 & TikTok Remove Ad & Logo
 douyin_ad = type=http-response,pattern=^https?:\/\/aweme\.snssdk\.com\/aweme\/v1\/(feed|aweme\/post|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list)\/,requires-body=1,max-size=-1,script-path=https://Choler.github.io/Surge/Script/douyin.js
-
 # > YouTube
 //YouTube.js = script-path=https://Choler.github.io/Surge/Script/YouTube.js,type=http-request,pattern=^https://[\s\S]*\.googlevideo\.com/.*&(oad|ctier)
-
 # > 人人视频 去广告
 rrsp_video = type=http-response,requires-body=true,pattern=^https?:\/\/api\.rr\.tv\/watch\/v\d\/get_movie_info,script-path=https://Choler.github.io/Surge/Script/rrsp.js
 rrsp_banner = type=http-response,requires-body=true,pattern=^https?:\/\/api\.rr\.tv\/v\dplus\/index\/channel$,script-path=https://Choler.github.io/Surge/Script/rrsp.js
@@ -98,37 +95,17 @@ bilibili live = type=http-response,requires-body=1,max-size=0,pattern=https://ap
 # > 酷我音乐SVIP (By yxiaocai)
 Kuwo.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/KuWoMusicDownload.js,type=http-request,pattern=^https?:\/\/musicpay\.kuwo.cn\/music\.pay\?uid=\d+
 Kuwo.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Kuwo.js,type=http-response,pattern=^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice)
-# > 小小影视  去广告(By Eric)
-小小影视 = type=http-response,pattern=https:\/\/.*\/getGlobalData,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/xxysad.js,script-update-interval=0
-# > 爱美剧Vip (by huihui）(官网：app.meiju2018.com)
-aimeiju.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/aimeiju.js,type=http-response,pattern=^https?:\/\/api.bjxkhc.com\/index\.php\/app\/ios\/(vod\/show|(user|vod|topic|type)\/index)
 # > 网易蜗牛读书VIP (By yxiaocai and JO2EY)
 wnyd.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/wnyd.js,type=http-response,pattern=^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json
-# > 看漫画极速版vip (By HoGer)
-kmh.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/kmh.js,type=http-response,pattern=^https?:\/\/getuserinfo\.321mh\.com\/app_api\/v5\/getuserinfo\/
-# > 知音漫客VIP (By mieqq)
-Zymh.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Zymh.js,type=http-response,pattern=^https://getuserinfo-globalapi.zymk.cn/app_api/v5/(getuserinfo|coin_account|getuserinfo_ticket|getcomicinfo)/
-# > VSCO滤镜VIP
-vsco.js = requires-body=1,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/NobyDa/QuantumultX/File/vsco.js,type=http-response,pattern=^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/
-# > 大片-视频编辑器 VIP
-dapian.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/dapian.js,type=http-response,pattern=^https?:\/\/api\.vnision\.com\/v1\/(users\/|banners)
 # > 91短视频
 91.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/91.js,type=http-response,pattern=“^https?:\/\/.+\.(my10api|(.*91.*))\.(com|tips|app|xyz)(:\d{2,5})?\/api.php$”
 # > 香蕉视频VIP
 xjsp.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js,type=http-response,pattern=^https?:\/\/.*\.(lago|fuli|xiang(jiao|xiang))apps\.com\/(ucp\/index|getGlobalData|.+\/reqplay\/)
-# > WPS (By eHpo)
-Wps.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js,type=http-response,pattern=^https://account.wps.*/api/users/
-# > Gyroscope 解锁 pro (By Maasea)
-gyroscope.js = requires-body=1,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/NobyDa/Surge/JS/gyroscope.js,type=http-response,pattern=^https:\/\/api\.gyrosco\.pe\/v1\/account\/$
+
 # JibJab解锁pro
 jibjab.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/jibjab.js,type=http-response,pattern=^https:\/\/origin-prod-phoenix\.jibjab\.com\/v1\/user
 # Termius 解锁本地pro  (By Maasea)
 Termius.js = requires-body=1,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/NobyDa/Surge/JS/Termius.js,type=http-response,pattern=https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/
-
-# 彩云天气 Vip
-彩云天气 = type=http-response,pattern=https://biz.caiyunapp.com/v2/user\?app_name=weather,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/Surge/master/Script/caiyun.js
-# 扫描全能王 pro
-CamScanner.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/CamScanner.js,type=http-response,pattern=^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\?
 # VUE pro
 VUE.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/VUE.js,type=http-response,pattern=^https:\/\/api\.vuevideo\.net\/api\/v1\/(users\/.+\/profile|subtitle\/prepare)
 # Splice 视频编辑器 pro
@@ -137,17 +114,6 @@ Splice.js = requires-body=1,script-path=https://raw.githubusercontent.com/nzw931
 Bahamut.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bahamut.js,type=http-request,pattern=https:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v3\/token\.php
 Bahamut.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bahamut.js,type=http-response,pattern=https:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v3\/token\.php
 # > 以下为nzw9314收集整理
-# > superuv
-# > 驾校一点通 (by @superuv)
-jxydt.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/jxydt.js,type=http-response,pattern=^https:\/\/vipapi\.jxedt\.com\/vip\/check
-# > 海豚记账 (by @superuv)
-HTJZ.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/HTJZ.js,type=http-response,pattern=https:\/\/book\.haitunwallet\.com\/app\/vip\/status
-# > Pocket list (by @superuv)
-pock.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/pock.js,type=http-response,pattern=^https:\/\/pocketlists\.com\/api\/v1\/pocketlists.me.get
-# > 幕布(by @superuv)
-mb.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/mb.js,type=http-response,pattern=https:\/\/mubu\.com\/api\/app\/user\/info
-# 微商助手(by @superuv)
-wszs.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/wszs.js,type=http-response,pattern=https:\/\/api\.lennou\.com\/user\/info
 # > Miao Miao
 # > Bear熊掌记 (By Miao Miao)
 // bear.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/bear.js,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
@@ -155,21 +121,9 @@ wszs.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.c
 # > 去广告+原画
 Diyidan.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/Diyidan.js,type=http-response,pattern=^https:\/\/api\.diyidan\.net\/v0\.3\/(user\/personal_homepage|vip_user\/info|tv_series\/index\?appChanne)
 # > syzzzf
-# 轻颜相机 & ulike & 蒸汽波相机(vaporcam)三合一 解锁VIP(By @s y & Alex0510)
-qyxj.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/qyxj.js,type=http-response,pattern=^https:\/\/commerce-.*api\.faceu\.mobi\/commerce\/v1\/subscription\/user_info
 # CPU Dasher破解(需要ios13 恢复购买后禁用掉 By @s y)
 // cupdasher.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/cupdasher.js,type=http-response,pattern=^https:\/\/p.+-buy\.itunes\.apple\.com\/WebObjects\/MZFinance.woa\/wa\/inAppRegrantPurchaseHistory
-# 酷我换肤(已经有的皮肤需要先从本地皮肤删除再换 By@ s y)
-themekuwo.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/themekuwo.js,type=http-response,pattern=^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/theme)
-# > Alex0510
-# > 有道云笔记 (By Alex0510)
-ydybj.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/ydybj.js,type=http-response,pattern=https://note.youdao.com/yws/(mapi/payment|api/self)
-# > 彩云小译 (By Alex0510)
-cyxy.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/cyxy.js,type=http-response,pattern=^https:\/\/api\.interpreter\.caiyunai\.com\/v1\/user
-# > 石墨文档 (By Alex0510)
-shimo.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/shimo.js,type=http-response,pattern=https://api.shimo.im/users/
-# 手机硬件管家 (By Alex0510)
-sjyjgj.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/sjyjgj.js,type=http-response,pattern=http:\/\/api\.591master\.com\:8081\/(1.0|3.6.8)\/ui(forum|common)\/(downloadwallpaper|getuser)
+
 # > 凉意
 # 闪电下载vip (By 凉意)
 sdxz.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/sdxz.js,type=http-response,pattern=^http\:\/\/app\.flashdown365\.com\/ios\/login
@@ -180,91 +134,7 @@ JAV101.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent
 xiaoshuimian.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/xiaoshuimian.js,type=http-response,pattern=^https:\/\/api\.psy-1\.com\/cosleep\/user\/info
 # 蜗牛睡眠会员（by 黑黑酱）
 wnsm.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/wnsm.js,type=http-response,pattern=^https:\/\/snailsleep\.net\/snail\/v1\/profile\/get
-# 西窗烛 （By 黑黑酱）
-xcz.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/xcz.js,type=http-response,pattern=^https:\/\/avoscloud\.com\/1\.1\/users\/
-# > 美颜相机一次性解锁内购（by黑黑酱）
-myxj.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/myxj.js,type=http-response,pattern=^https:\/\/api\.meiyan\.com\/iap\/verify\.json
-# Fit健身会员 （by黑黑酱）
-fit.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/fit.js,type=http-response,pattern=^https:\/\/bea\.sportq\.com\/SFitWeb\/sfit\/getUserBaseInfo
-# > LTribe
-# > 万里影视 无限时常（by LTribe）
-Wanliyingshi.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/Wanliyingshi.js,type=http-response,pattern=^http?:\/\/.*\.arten.cn/login/login
-# VideoStar Unlock（by LTribe）
-VideoStar.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/VideoStar.js,type=http-response,pattern=^https?:\/\/.*\.videostarapp\.com\/scripts\/subsNew\.php
-# > 军哥哥
-# > sunshy
-# > SoloLearn Unlock PRO & Platinum Moderator (By @sunshy)
-sololearn.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/sololearn.js,type=http-response,pattern=https:\/\/api\.sololearn\.com\/(authenticateDevice|challenge\/GetContestFeed|Profile\/GetProfile)$
-# > CheeryTodo
-# Pillow (By @CheeryTodo)
-pillow.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/pillow.js,type=http-response,pattern=https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts)
-# 马卡龙 (By @CheeryTodo)
-mkl.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/mkl.js,type=http-response,pattern=https://app.api.versa-ai.com/pay/order/iap/check
-
-# lake
-lake.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/lake.js,type=http-response,pattern=^https:\/\/api\.lakecoloring\.com\/v1\/receipt
-# > 人人视频 解锁AI原画 (by@george Jiang & R)
-rrtv.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/rrtv.js,type=http-response,pattern=^https:\/\/api\.rr\.tv(\/user\/privilege\/list|\/ad\/getAll|\/rrtv-video\/v4plus\/season\/detail)
-# > WPS (By eHpo1)
-Wps.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js,type=http-response,pattern=^https://account.wps.*/api/users/
-
-
-# > Pear雪梨 unlock vip
-pear.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/pear.js,type=http-response,pattern=^https:\/\/(www\.baidu.com2\.club|ayk\.tmdidi\.com|m\.pearkin\.com|souhu\.mett\.me|bkcd\.b-cdn\.net)\/(api\/movie\/WatchMovie|api\/Account\/CheckVip|api\/account\/IndexDetail)
-# > Peak 解锁Pro
-peak.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/peak.js,type=http-response,pattern=^https:\/\/billing\.peakcloud\.org\/billing\/2\/user\/me?
-# > IT之家 去新闻列表广告
-ITHome.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/ITHome.js,type=http-response,pattern=^https?:\/\/api\.ithome\.com\/json\/slide\/index
-ITHome.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/ITHome.js,type=http-response,pattern=^https?:\/\/api\.ithome\.com\/json\/(newslist|listpage)\/news
-# > 飒漫画 (By @u18888)
-Smh.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/Smh.js,type=http-response,pattern=^https:\/\/m\.samh\.xndm\.tech\/userapi\/info\/v1\/getuserinfo
-# > 油猴转换器 (by Peng-YM)
-Greasy Fork=type=http-response, pattern=^https:\/\/(greasyfork|openuserjs)\.org\/.*\/.*\.user\.js, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Rewrites/GreasyFork/greasy-fork.js, requires-body=true
-
-# > Langkhach越南老哥
-
-remove-nonematch.js = script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/remove-nonematch.js,script-update-interval=0,type=http-request,pattern=^https:\/\/secure\.istreamer\.com\/backend$
-
-
-# > Dayone
-# 1.启用本脚本与 pre 脚本
-# 2.重启 Day One，稍等片刻等待高级版出现
-# 3.禁用掉 pre 脚本，重启 Day One，确认高级版状况不变
-# pre_dayone
-// dayone-pre.js = debug=1,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/dayone-pre.js,type=http-request,pattern=^https:\/\/dayone\.me\/api\/users$
-dayone.surge.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/dayone.surge.js,script-update-interval=0,type=http-response,pattern=^https:\/\/dayone\.me\/api\/(users|v2\/users\/(account-status|receipt))$
-# > endel
-endel.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/endel.js,script-update-interval=0,type=http-response,pattern=^https:\/\/api-production\.endel\.io\/.*\/user$
-
 # > photoshop
 photoshop.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/photoshop.js,script-update-interval=0,type=http-response,pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile
-
-# > workingcopy.js
-workingcopy.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/workingcopy.js,script-update-interval=0,type=http-response,pattern=^https:\/\/education\.github\.com\/api\/user$
-# > speak&translate
-speak&translate.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/speak&translate.js,script-update-interval=0,type=http-response,pattern=^https:\/\/receipt-validator\.herewetest\.com\/apple\/verifyTransaction$
-
-
-# > #mojo&noto
-revenuecat.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/revenuecat.js,script-update-interval=0,type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$)
-
-# > productive&sleepzy
-Productive = type=http-response,pattern=^https:\/\/subs\.platforms\.team\/.+\/apple\/verify$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/productive.js,script-update-interval=0
-
-# > Lightroom
-Lightroom.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/Lightroom.js,script-update-interval=0,type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts
-
-
-
-
-
-
-
-
-
-# > Buyhack
-verify_receipt.js = requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/verify_receipt.js,script-update-interval=0,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$
-
-
 [MITM]
 hostname = %APPEND% greasyfork.org, openuserjs.org, 8.8.8.8, 1.1.1.1, trade-acs.m.taobao.com, bea.sportq.com, api.meiyan.com, pwaapi.gao1gps.cn, avoscloud.com, app.flashdown365.com, m.samh.xndm.tech,  api.m.jd.com, ios.prod.ftl.netflix.com, vipapi.jxedt.com, api.interpreter.caiyunai.com, pocketlists.com, book.haitunwallet.com, mubu.com,   api.lennou.com,  commerce-.*api.faceu.mobi, commerce-api.faceu.mobi, pan.baidu.com, api.revenuecat.com, api.rr.tv, api.lakecoloring.com, ctrl.playcvn.com,  m.client.10010.com, api.wakamoment.ga, *.bh3.com, api.diyidan.net, api.sololearn.com,  bkcd.b-cdn.net, souhu.mett.me, ayk.tmdidi.com, m.pearkin.com, www.baidu.com2.club,   note.youdao.com, billing.peakcloud.org, api.ithome.com,  *.arten.cn,  api.shimo.im, pay.wecut.com, *.videostarapp.com, app.api.versa-ai.com, api.591master.com,   api.psy-1.com, snailsleep.net, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, www.zhihu.com, api.zhihu.com, link.zhihu.com, 118.89.204.198, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, *.amemv.com,  *.kuwo.cn, vip1.kuwo.cn, *.xiaoxiao*.com, *.tiktokv.com, *.musical.ly, p.du.163.com, getuserinfo.321mh.com,  ios.fuliapps.com, vsco.co, api.vnision.com, *.my10api.com, sp.kaola.com, apple.fuliapps.com,  app101.avictown.cc, api.hlo.xyz, api.ijo.xyz,  account.wps.*, u.kanghuayun.com, api.gyrosco.pe,   mitaoapp.yeduapp.com, origin-prod-phoenix.jibjab.com, www.3ivf.com, pay.guoing.com, api.termius.com, api.bjxkhc.com,  biz.caiyunapp.com,  ap*.intsig.net,  api.vuevideo.net, api.picsart.c*,  api.gamer.com.tw, ios.xiangjiaoapps.com, apple.xiangjiaoapps.com, *.lagoapps.com, api.gamer.com.tw, *.xiangxiangapps.com, avatar-nct.nixcdn.com, spclient.wg.spotify.com, oa.zalo.me, origin-prod-phoenix.jibjab.com, api.meiease.c*,  viva-asia1.vvbrd.com,  purchases.ws.pho.to,   api.global.mp3.zing.vn,  photos.adobe.io,  subs.platforms.team,   api.revenuecat.com,   www.peacefulsoundsapp.com, duolingo-leaderboards-prod.duolingo.com, mobile-api.adguard.com, api.blinkist.com,  api.pushover.net, ap*.intsig.net,  receipt-validator.herewetest.com, lcs-mobile-cops.adobe.io, education.github.com,   license.enpass.io, mp.bybutter.com,   api.keepkeep.com,   api.textnow.me
