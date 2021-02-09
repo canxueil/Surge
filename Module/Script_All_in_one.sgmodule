@@ -23,7 +23,9 @@ DOMAIN,118.89.204.198,REJECT
 USER-AGENT,AVOS*,REJECT
 URL-REGEX,https://api.zhihu.com/(ad|drama|fringe|commercial|market/popover|search/(top|preset|tab)|.*featured-comment-ad),REJECT
 AND,((USER-AGENT,ZhihuHybrid*), (URL-REGEX,.*recommend)),REJECT
-
+# > 腾讯视频
+URL-REGEX,^http://[0-9\.]+/vlive.qqvideo.tc.qq.com/ url reject
+URL-REGEX,^http://[0-9\.]+/variety.tc.qq.com/ url reject
 
 
 
@@ -50,9 +52,7 @@ URL-REGEX,^http(s)://api.bjxkhc.com/index.php/app/ios/ads/index,REJECT-TINYGIF
 ^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/search\/item\/ https://aweme.snssdk.com/aweme/v1/search/item/ header
 ^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/general\/search\/single\/ https://aweme.snssdk.com/aweme/v1/general/search/single/ header
 ^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/hot/search\/video\/list\/ https://aweme.snssdk.com/aweme/v1/hot/search/video/list/ header
-#腾讯视频
-^http://[0-9\.]+/vlive.qqvideo.tc.qq.com/ url reject
-^http://[0-9\.]+/variety.tc.qq.com/ url reject
+
 [Header Rewrite]
 # > 小小影视vip (By Eric)
 https:\/\/.*.xiaoxiao(img|apps|appxs).com header-replace Cookie xxx_api_auth=6131333537653261363463323331666265663763396239663835636662373930
