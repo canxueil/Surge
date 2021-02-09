@@ -7,8 +7,7 @@ force-http-engine-hosts = %APPEND% vali.cp31.ott.cibntv.net
 
 [Rule]
 # > 腾讯视频
-URL-REGEX,^http://[0-9\.]+/vlive.qqvideo.tc.qq.com/ , REJECT
-URL-REGEX,^http://[0-9\.]+/variety.tc.qq.com/ , REJECT
+
 # > 京东  去启动广告
 URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-TINYGIF
 # > 哔哩哔哩 去广告 
