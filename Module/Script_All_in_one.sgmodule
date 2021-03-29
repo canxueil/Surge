@@ -11,40 +11,15 @@ URL-REGEX,^http://[0-9\.]+/vlive.qqvideo.tc.qq.com/,REJECT
 URL-REGEX,^http://[0-9\.]+/variety.tc.qq.com/,REJECT
 # > 京东  去启动广告
 URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-TINYGIF
-# > 哔哩哔哩 去广告 
-URL-REGEX,https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)),REJECT
-URL-REGEX,https://api.bilibili.com/x/v2/dm/ad,REJECT
-# > 知乎 去广告
-//SOME MCN INFO MAY BE USEFUL
-//URL-REGEX,https://www.zhihu.com/api/v4/mcn/,REJECT
-DOMAIN,appcloud2.zhihu.com,REJECT
-//DO NOT GET CDN-BASED IP
-DOMAIN,118.89.204.198,REJECT
-USER-AGENT,AVOS*,REJECT
-URL-REGEX,https://api.zhihu.com/(ad|drama|fringe|commercial|market/popover|search/(top|preset|tab)|.*featured-comment-ad),REJECT
-AND,((USER-AGENT,ZhihuHybrid*), (URL-REGEX,.*recommend)),REJECT
+
 # > 人人视频 去广告
 AND,((USER-AGENT,PUClient*), (NOT,((DOMAIN-SUFFIX,rr.tv)))),REJECT
 URL-REGEX,^https?:\/\/api\.rr\.tv\/(?:ad\/getAll$|storage/business/rootName/app/homePage),REJECT
 # > 优酷 去广告
 URL-REGEX,^http:\/\/vali\.cp31\.ott\.cibntv\.net\/youku\/,REJECT-TINYGIF
-# > 爱美剧 去广告
-URL-REGEX,^http(s)://api.bjxkhc.com/index.php/app/ios/pay/ok$ ,REJECT-TINYGIF
-URL-REGEX,^http(s)://api.bjxkhc.com/index.php/app/ios/ver/index_ios$,REJECT
-URL-REGEX,^http(s)://api.bjxkhc.com/index.php/app/ios/ads/index,REJECT-TINYGIF
+
 [URL Rewrite]
-# > TikTok 解锁
-(?<=_region=)CN(?=&) JP 307
-(?<=&app_version=)16..(?=.?.?&) 1 307
-(?<=\?version_code=)16..(?=.?.?&) 1 307 
-# > 抖音 去广告&水印
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/feed\/ https://aweme.snssdk.com/aweme/v1/feed/ header
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/aweme\/post\/ https://aweme.snssdk.com/aweme/v1/aweme/post/ header
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/follow\/feed\/ https://aweme.snssdk.com/aweme/v1/follow/feed/ header
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/nearby\/feed\/ https://aweme.snssdk.com/aweme/v1/nearby/feed/ header
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/search\/item\/ https://aweme.snssdk.com/aweme/v1/search/item/ header
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/general\/search\/single\/ https://aweme.snssdk.com/aweme/v1/general/search/single/ header
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/hot/search\/video\/list\/ https://aweme.snssdk.com/aweme/v1/hot/search/video/list/ header
+
 
 [Header Rewrite]
 # > 小小影视vip (By Eric)
@@ -59,9 +34,6 @@ jd_price.js = type=http-response,pattern=https?://api\.m\.jd\.com/client\.action
 # 不生效或失效的需要卸载 tb 重装，注意不开脚本进 tb 会失效
 tb_price.js = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-request,pattern=^http://.+/amdc/mobileDispatch
 tb_price.js = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-response,pattern=^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail
-# > 奈飞评分
-nf_rating.js = script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js,type=http-request,pattern=^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D
-nf_rating.js = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js,type=http-response,pattern=^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D
 单集评分 = type=http-response,pattern=^https?://ios\.prod\.ftl\.netflix\.com/iosui/warmer/.+type=show-ath,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating_season.js
 # > 微博去广告
 wb_launch.js = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js,type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
@@ -80,14 +52,7 @@ zhihu people = type=http-response,requires-body=1,max-size=0,pattern=https://api
 zhihu feed = type=http-response,requires-body=1,max-size=0,pattern=https://api.zhihu.com/moments/recommend,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20feed.js
 zhihu recommend = type=http-response,requires-body=1,max-size=0,pattern=https://api.zhihu.com/topstory/recommend,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20recommend.js
 zhihu answer = type=http-response,requires-body=1,max-size=0,pattern=https://api.zhihu.com/v4/questions,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20answer.js
-# > 哔哩哔哩 精简&去广告
-//收藏排行 = type=http-response,requires-body=1,max-size=0,pattern=https://app.bilibili.com/x/v2/space\?access_key,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20space.js
-首页 tab = type=http-response,requires-body=1,max-size=0,pattern=https://app.bilibili.com/x/resource/show/tab\?access_key,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20tab.js
-bilibili feed = type=http-response,requires-body=1,max-size=0,pattern=https://app.bilibili.com/x/v2/feed/index\?access_key,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20feed.js
-个人中心 = type=http-response,requires-body=1,max-size=0,pattern=https://app.bilibili.com/x/v2/account/mine\?access_key,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20account.js
-bilibili view = type=http-response,requires-body=1,max-size=0,pattern=https://app.bilibili.com/x/v2/view\?access_key,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20view%20relate.js
-bilibili reply = type=http-response,requires-body=1,max-size=0,pattern=https://api.bilibili.com/x/v2/reply/main\?access_key,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20reply.js
-bilibili live = type=http-response,requires-body=1,max-size=0,pattern=https://api.live.bilibili.com/xlive/app-room/v1/index/getInfoByRoom\?access_key,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20live.js
+
 # > NobyDa
 # > 酷我音乐SVIP (By yxiaocai)
 Kuwo.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/KuWoMusicDownload.js,type=http-request,pattern=^https?:\/\/musicpay\.kuwo.cn\/music\.pay\?uid=\d+
@@ -97,27 +62,11 @@ wnyd.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/S
 # > 香蕉视频VIP
 xjsp.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js,type=http-response,pattern=^https?:\/\/.*\.(lago|fuli|xiang(jiao|xiang))apps\.com\/(ucp\/index|getGlobalData|.+\/reqplay\/)
 
-# JibJab解锁pro
-jibjab.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/jibjab.js,type=http-response,pattern=^https:\/\/origin-prod-phoenix\.jibjab\.com\/v1\/user
-# Termius 解锁本地pro  (By Maasea)
-Termius.js = requires-body=1,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/NobyDa/Surge/JS/Termius.js,type=http-response,pattern=https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/
-# VUE pro
-VUE.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/VUE.js,type=http-response,pattern=^https:\/\/api\.vuevideo\.net\/api\/v1\/(users\/.+\/profile|subtitle\/prepare)
 # Splice 视频编辑器 pro
 Splice.js = requires-body=1,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/NobyDa/Surge/JS/Splice.js,type=http-response,pattern=^https:\/\/splice\.oracle\.\w+\.com\/devices\/me
 # 动画疯 去广告
 Bahamut.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bahamut.js,type=http-request,pattern=https:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v3\/token\.php
 Bahamut.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bahamut.js,type=http-response,pattern=https:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v3\/token\.php
-# > 以下为nzw9314收集整理
-# > Miao Miao
-# > Bear熊掌记 (By Miao Miao)
-// bear.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/bear.js,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
-# > 第一弹  (By Miao Miao)
-# > 去广告+原画
-Diyidan.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/Diyidan.js,type=http-response,pattern=^https:\/\/api\.diyidan\.net\/v0\.3\/(user\/personal_homepage|vip_user\/info|tv_series\/index\?appChanne)
-# > syzzzf
-# CPU Dasher破解(需要ios13 恢复购买后禁用掉 By @s y)
-// cupdasher.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/cupdasher.js,type=http-response,pattern=^https:\/\/p.+-buy\.itunes\.apple\.com\/WebObjects\/MZFinance.woa\/wa\/inAppRegrantPurchaseHistory
 
 # > 凉意
 # 闪电下载vip (By 凉意)
@@ -132,4 +81,4 @@ wnsm.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.c
 # > photoshop
 photoshop.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/photoshop.js,script-update-interval=0,type=http-response,pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile
 [MITM]
-hostname = %APPEND% greasyfork.org, openuserjs.org, 8.8.8.8, 1.1.1.1, trade-acs.m.taobao.com, bea.sportq.com, api.meiyan.com, pwaapi.gao1gps.cn, avoscloud.com, app.flashdown365.com, m.samh.xndm.tech,  api.m.jd.com, ios.prod.ftl.netflix.com, vipapi.jxedt.com, api.interpreter.caiyunai.com, pocketlists.com, book.haitunwallet.com,    api.lennou.com,  commerce-.*api.faceu.mobi, commerce-api.faceu.mobi, pan.baidu.com, api.revenuecat.com, api.rr.tv, api.lakecoloring.com, ctrl.playcvn.com,  api.wakamoment.ga, *.bh3.com, api.diyidan.net, api.sololearn.com,  bkcd.b-cdn.net, ayk.tmdidi.com, m.pearkin.com, www.baidu.com2.club,   note.youdao.com, billing.peakcloud.org, api.ithome.com,  *.arten.cn,  api.shimo.im, pay.wecut.com, *.videostarapp.com, app.api.versa-ai.com, api.591master.com,   api.psy-1.com, snailsleep.net, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, www.zhihu.com, api.zhihu.com, link.zhihu.com, 118.89.204.198, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, *.amemv.com,  *.kuwo.cn, vip1.kuwo.cn, *.xiaoxiao*.com, *.tiktokv.com, *.musical.ly, p.du.163.com, getuserinfo.321mh.com,  ios.fuliapps.com, vsco.co, api.vnision.com, *.my10api.com, sp.kaola.com, apple.fuliapps.com,  app101.avictown.cc, api.hlo.xyz, api.ijo.xyz,  account.wps.*, u.kanghuayun.com, api.gyrosco.pe,   mitaoapp.yeduapp.com, origin-prod-phoenix.jibjab.com, www.3ivf.com, pay.guoing.com, api.termius.com, api.bjxkhc.com,  biz.caiyunapp.com,  ap*.intsig.net,  api.vuevideo.net, api.picsart.c*,  api.gamer.com.tw, ios.xiangjiaoapps.com, apple.xiangjiaoapps.com, *.lagoapps.com, api.gamer.com.tw, *.xiangxiangapps.com, avatar-nct.nixcdn.com, spclient.wg.spotify.com, oa.zalo.me, origin-prod-phoenix.jibjab.com, api.meiease.c*,  viva-asia1.vvbrd.com,  purchases.ws.pho.to,   api.global.mp3.zing.vn,  photos.adobe.io,  subs.platforms.team,   api.revenuecat.com,   www.peacefulsoundsapp.com, duolingo-leaderboards-prod.duolingo.com, mobile-api.adguard.com, api.blinkist.com,  api.pushover.net, ap*.intsig.net,  receipt-validator.herewetest.com, lcs-mobile-cops.adobe.io, education.github.com,   license.enpass.io, mp.bybutter.com
+hostname = %APPEND% greasyfork.org, openuserjs.org, 8.8.8.8, 1.1.1.1, trade-acs.m.taobao.com, bea.sportq.com,  pwaapi.gao1gps.cn, avoscloud.com, app.flashdown365.com, m.samh.xndm.tech,  api.m.jd.com,  vipapi.jxedt.com,   pan.baidu.com,  api.rr.tv, api.lakecoloring.com,   api.wakamoment.ga, *.bh3.com, api.diyidan.net, api.sololearn.com,  bkcd.b-cdn.net, ayk.tmdidi.com, m.pearkin.com, www.baidu.com2.club,   note.youdao.com, billing.peakcloud.org, api.ithome.com,  *.arten.cn,  api.shimo.im, pay.wecut.com, *.videostarapp.com, app.api.versa-ai.com, api.591master.com,   api.psy-1.com, snailsleep.net, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com,  118.89.204.198,   *.amemv.com,  *.kuwo.cn, vip1.kuwo.cn,  *.tiktokv.com, *.musical.ly, p.du.163.com, getuserinfo.321mh.com,  ios.fuliapps.com, vsco.co, api.vnision.com, *.my10api.com, sp.kaola.com, apple.fuliapps.com,  app101.avictown.cc, api.hlo.xyz, api.ijo.xyz,  account.wps.*, u.kanghuayun.com, api.gyrosco.pe,   mitaoapp.yeduapp.com, origin-prod-phoenix.jibjab.com, www.3ivf.com, pay.guoing.com, api.termius.com, api.bjxkhc.com,  biz.caiyunapp.com,  ap*.intsig.net,  api.vuevideo.net, api.picsart.c*,  api.gamer.com.tw, ios.xiangjiaoapps.com, apple.xiangjiaoapps.com, *.lagoapps.com, api.gamer.com.tw, *.xiangxiangapps.com, avatar-nct.nixcdn.com, spclient.wg.spotify.com, oa.zalo.me,  viva-asia1.vvbrd.com,  purchases.ws.pho.to,    subs.platforms.team,    mobile-api.adguard.com, api.blinkist.com,   education.github.com, 
