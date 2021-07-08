@@ -4,56 +4,32 @@
 [General]
 # > 优酷 去广告
 force-http-engine-hosts = %APPEND% vali.cp31.ott.cibntv.net
-
 [Rule]
 # > 腾讯视频
 URL-REGEX,^http://[0-9\.]+/vlive.qqvideo.tc.qq.com/,REJECT
 URL-REGEX,^http://[0-9\.]+/variety.tc.qq.com/,REJECT
 # > 京东  去启动广告
 URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-TINYGIF
-
 # > 人人视频 去广告
 AND,((USER-AGENT,PUClient*), (NOT,((DOMAIN-SUFFIX,rr.tv)))),REJECT
 URL-REGEX,^https?:\/\/api\.rr\.tv\/(?:ad\/getAll$|storage/business/rootName/app/homePage),REJECT
 # > 优酷 去广告
 URL-REGEX,^http:\/\/vali\.cp31\.ott\.cibntv\.net\/youku\/,REJECT-TINYGIF
-
 [URL Rewrite]
-
 
 [Header Rewrite]
 # > 小小影视vip (By Eric)
 https:\/\/.*.xiaoxiao(img|apps|appxs).com header-replace Cookie xxx_api_auth=6131333537653261363463323331666265663763396239663835636662373930
-
 [Script]
-
-
-单集评分 = type=http-response,pattern=^https?://ios\.prod\.ftl\.netflix\.com/iosui/warmer/.+type=show-ath,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating_season.js
 # > 微博去广告
 wb_launch.js = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js,type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
 wb_ad.js = type=http-response,requires-body=1,max-size=-1,pattern=^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/photos/pic_recommend_status|video/tiny_stream_video_list|photo/info),script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js
-# > Choler
-# > 抖音 & TikTok Remove Ad & Logo
-douyin_ad = type=http-response,pattern=^https?:\/\/aweme\.snssdk\.com\/aweme\/v1\/(feed|aweme\/post|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list)\/,requires-body=1,max-size=-1,script-path=https://Choler.github.io/Surge/Script/douyin.js
+
 # > YouTube
 //YouTube.js = script-path=https://Choler.github.io/Surge/Script/YouTube.js,type=http-request,pattern=^https://[\s\S]*\.googlevideo\.com/.*&(oad|ctier)
-# > 人人视频 去广告
-rrsp_video = type=http-response,requires-body=true,pattern=^https?:\/\/api\.rr\.tv\/watch\/v\d\/get_movie_info,script-path=https://Choler.github.io/Surge/Script/rrsp.js
-rrsp_banner = type=http-response,requires-body=true,pattern=^https?:\/\/api\.rr\.tv\/v\dplus\/index\/channel$,script-path=https://Choler.github.io/Surge/Script/rrsp.js
-
-
-
 
 # > 网易蜗牛读书VIP (By yxiaocai and JO2EY)
 wnyd.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/wnyd.js,type=http-response,pattern=^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json
-# > 香蕉视频VIP
-xjsp.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js,type=http-response,pattern=^https?:\/\/.*\.(lago|fuli|xiang(jiao|xiang))apps\.com\/(ucp\/index|getGlobalData|.+\/reqplay\/)
-
-# Splice 视频编辑器 pro
-Splice.js = requires-body=1,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/NobyDa/Surge/JS/Splice.js,type=http-response,pattern=^https:\/\/splice\.oracle\.\w+\.com\/devices\/me
-# 动画疯 去广告
-Bahamut.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bahamut.js,type=http-request,pattern=https:\/\/api\.er
-r\.com\.tw\/mobile_app\/anime\/v3\/token\.php
 # > 凉意
 # 闪电下载vip (By 凉意)
 sdxz.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/sdxz.js,type=http-response,pattern=^http\:\/\/app\.flashdown365\.com\/ios\/login
@@ -66,4 +42,6 @@ xiaoshuimian.js = requires-body=1,max-size=0,script-path=https://raw.githubuserc
 wnsm.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/wnsm.js,type=http-response,pattern=^https:\/\/snailsleep\.net\/snail\/v1\/profile\/get
 
 [MITM]
-hostname = %APPEND% greasyfork.org, openuserjs.org, 8.8.8.8, 1.1.1.1,  bea.sportq.com,  pwaapi.gao1gps.cn, avoscloud.com, app.flashdown365.com, m.samh.xndm.tech,   vipapi.jxedt.com,    api.rr.tv, api.lakecoloring.com,   api.wakamoment.ga, *.bh3.com, api.diyidan.net, api.sololearn.com,  bkcd.b-cdn.net, ayk.tmdidi.com, m.pearkin.com, www.baidu.com2.club,   note.youdao.com, billing.peakcloud.org, api.ithome.com,  *.arten.cn,  api.shimo.im, pay.wecut.com, *.videostarapp.com, app.api.versa-ai.com, api.591master.com,   api.psy-1.com, snailsleep.net, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com,  118.89.204.198,   *.amemv.com,  *.kuwo.cn, vip1.kuwo.cn,  *.tiktokv.com, *.musical.ly, p.du.163.com, getuserinfo.321mh.com,  ios.fuliapps.com, vsco.co, api.vnision.com, *.my10api.com, sp.kaola.com, apple.fuliapps.com,  app101.avictown.cc, api.hlo.xyz, api.ijo.xyz,  account.wps.*, u.kanghuayun.com, api.gyrosco.pe,   mitaoapp.yeduapp.com, origin-prod-phoenix.jibjab.com, www.3ivf.com, pay.guoing.com, api.termius.com, api.bjxkhc.com,  biz.caiyunapp.com,  ap*.intsig.net,  api.vuevideo.net, api.picsart.c*, ios.xiangjiaoapps.com, apple.xiangjiaoapps.com, *.lagoapps.com, api.gamer.com.tw, *.xiangxiangapps.com, avatar-nct.nixcdn.com, spclient.wg.spotify.com, oa.zalo.me,  viva-asia1.vvbrd.com,  purchases.ws.pho.to,    subs.platforms.team,    mobile-api.adguard.com, api.blinkist.com,   education.github.com, 
+hostname = %APPEND% greasyfork.org, openuserjs.org, 8.8.8.8, 1.1.1.1, m.samh.xndm.tech, 
+api.psy-1.com, snailsleep.net, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, p.du.163.com,app101.avictown.cc,app.flashdown365.com,
+
