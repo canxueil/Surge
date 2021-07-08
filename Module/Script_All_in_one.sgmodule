@@ -43,6 +43,5 @@ xiaoshuimian.js = requires-body=1,max-size=0,script-path=https://raw.githubuserc
 wnsm.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/wnsm.js,type=http-response,pattern=^https:\/\/snailsleep\.net\/snail\/v1\/profile\/get
 
 [MITM]
-hostname = %APPEND% greasyfork.org, openuserjs.org, 8.8.8.8, 1.1.1.1, m.samh.xndm.tech, 
-api.psy-1.com, snailsleep.net, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, p.du.163.com,app101.avictown.cc,app.flashdown365.com,api.bilibili.com
+hostname = %APPEND% greasyfork.org, openuserjs.org, 8.8.8.8, 1.1.1.1,m.samh.xndm.tech,api.psy-1.com, snailsleep.net, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, p.du.163.com,app101.avictown.cc,app.flashdown365.com,api.bilibili.com
 
